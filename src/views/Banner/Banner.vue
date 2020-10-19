@@ -20,6 +20,7 @@ export default {
   .img{
     display: block;
     max-width: 100%;
+    margin: auto;
   }
 }
 </style>
