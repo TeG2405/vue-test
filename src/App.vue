@@ -57,6 +57,7 @@ body{
   font-size: 14px;
   padding: 0;
   margin: 0;
+
 }
 .root{
   position: absolute;
@@ -65,6 +66,8 @@ body{
   height: 100%;
   .main{
     flex: 1 1 auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     .draggable{
       height: 100%;
     }
