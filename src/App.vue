@@ -53,6 +53,8 @@ export default {
 
 <style module lang="scss">
 body{
+  font-family: sans-serif;
+  font-size: 14px;
   padding: 0;
   margin: 0;
 }

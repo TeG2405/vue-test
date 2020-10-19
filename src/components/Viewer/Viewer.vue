@@ -6,6 +6,7 @@
     </div>
     <component :is="is" :="properties" />
     <div v-if="edit" :class="$style.editor">
+      <h2 :class="$style.title">Свойства компонента</h2>
       <div v-for="(value, key) in properties" :class="$style.prop" :key="key">
         <label :class="$style.label">{{key}}</label>
         <div :class="$style.control">
@@ -87,6 +88,10 @@ export default {
   .editor{
     padding: 15px;
     background-color: rgba(#ccc, 0.2);
+    .title{
+      margin: 0;
+      margin-bottom: 15px;
+    }
     .prop{
       &:not(:last-child){
         margin-bottom: 30px;
@@ -95,6 +100,7 @@ export default {
     .label{
       margin-bottom: 10px;
       display: block;
+      font-weight: bold;
     }
     .input{
       display: block;
