@@ -2,9 +2,7 @@
   <div :class="$style.root">
     <div :class="$style.main">
       <draggable :class="$style.draggable" group="bricks" :list="layout">
-        <viewer v-for="name in layout" :key="name">
-          <component :is="getComponentByName(name)" />
-        </viewer>
+        <viewer v-for="(name, index) in layout" :name="name" :key="index" />
       </draggable>
     </div>
     <div :class="$style.sidebar">
@@ -21,7 +19,7 @@
 import { ref } from 'vue';
 import { VueDraggableNext as Draggable } from 'vue-draggable-next';
 
-import {getComponentByName, getAllViews, getCompositionBase} from '@/views';
+import { getAllViews, getCompositionBase } from '@/views';
 
 import Toolbar from '@/components/Toolbar/Toolbar';
 import Brick from '@/components/Brick/Brick';
@@ -41,7 +39,6 @@ export default {
     return {
       bricks,
       layout,
-      getComponentByName,
     };
   },
 }
