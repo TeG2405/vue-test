@@ -2,7 +2,12 @@
   <div :class="$style.root">
     <div :class="$style.main">
       <draggable :class="$style.draggable" group="bricks" :list="layout">
-        <viewer v-for="(name, index) in layout" :name="name" :key="index" />
+        <viewer
+          v-for="(name, index) in layout"
+          :name="name"
+          :key="index"
+          @remove="() => removeView(index)"
+        />
       </draggable>
     </div>
     <div :class="$style.sidebar">
@@ -36,9 +41,11 @@ export default {
   setup(){
     const bricks = ref(getAllViews());
     const layout = ref(getCompositionBase());
+    const removeView = (index) => layout.value.splice(index, 1);
     return {
       bricks,
       layout,
+      removeView,
     };
   },
 }

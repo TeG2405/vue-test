@@ -1,7 +1,8 @@
 <template>
   <div :class="$style.root">
     <div :class="$style.controls">
-      <button :class="$style.btn" @click="toggleEditor" />
+      <button :class="[$style.btn, $style.remove]" @click="$emit('remove')">Удалить</button>
+      <button :class="[$style.btn, $style[edit ? 'close' : 'edit']]" @click="toggleEditor" />
     </div>
     <component :is="is" :="properties" />
     <div v-if="edit" :class="$style.editor">
@@ -45,7 +46,9 @@ export default {
 .root{
   position: relative;
   min-height: 30px;
+  &:hover{ outline: 1px solid #000 }
   .controls{
+    display: flex;
     position: absolute;
     top: 0;
     right: 0;
@@ -64,6 +67,17 @@ export default {
       background: #000;
       color: #fff;
       border-radius: 0;
+      margin-left: 10px;
+    }
+    .remove{
+      background: #ff0000;
+      width: auto;
+    }
+    .edit:before{
+      content: '🖊';
+    }
+    .close:before{
+      content: '×';
     }
   }
   .editor{
