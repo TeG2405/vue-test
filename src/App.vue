@@ -5,7 +5,7 @@
         <viewer
           v-for="(name, index) in layout"
           :name="name"
-          :key="index"
+          :key="name + index"
           @remove="() => removeView(index)"
         />
       </draggable>
