@@ -21,5 +21,6 @@ export default {
     box-sizing: border-box;
     overflow-x: hidden;
     overflow-y: auto;
+    user-select: none;
 }
 </style>
