@@ -9,7 +9,11 @@
       <div v-for="(value, key) in properties" :class="$style.prop" :key="key">
         <label :class="$style.label">{{key}}</label>
         <div :class="$style.control">
-          <textarea :class="$style.input" :value="value" @input="(event) => changeProperty(key, event.target.value)" />
+          <textarea
+            :class="$style.input"
+            :value="value"
+            @input="(event) => changeProperty(key, event.target.value)"
+          />
         </div>
       </div>
     </div>
@@ -83,6 +87,11 @@ export default {
   .editor{
     padding: 15px;
     background-color: rgba(#ccc, 0.2);
+    .prop{
+      &:not(:last-child){
+        margin-bottom: 30px;
+      }
+    }
     .label{
       margin-bottom: 10px;
       display: block;

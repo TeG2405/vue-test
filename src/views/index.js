@@ -2,10 +2,12 @@ import {get, keys, mapValues} from 'lodash';
 
 import Paragraph from '@/views/Paragraph/Paragraph';
 import Slider from '@/views/Slider/Slider';
+import Banner from '@/views/Banner/Banner';
 
 const Components = {
   Paragraph,
   Slider,
+  Banner,
 };
 
 export const getComponentByName = (name) => get(Components, [name], null);
